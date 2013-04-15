@@ -13,7 +13,7 @@
 
   <div class='field'>
     <%= f.label :category %>
-    <%= f.select :category, ::Refinery::News::Item.categories %>
+    <%= f.select :category, ::Refinery::News::Item.categories.map { |category| [category, category.downcase] } %>
   </div>
 
   <div class='field'>
