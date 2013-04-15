@@ -7,7 +7,9 @@ module Refinery
 
       attr_accessor :locale # to hold temporarily
 
-      attr_accessible :title, :body, :content, :source, :publish_date, :expiration_date
+      attr_accessible :title, :body, :content, :source, :publish_date, :expiration_date,
+        :category
+
       class Translation
         attr_accessible :locale
       end
@@ -88,6 +90,10 @@ module Refinery
         def teaser_enabled_toggle!
           currently = Refinery::Setting.find_or_set(:teasers_enabled, true, :scoping => 'news')
           Refinery::Setting.set(:teasers_enabled, :value => !currently, :scoping => 'news')
+        end
+
+        def categories
+          ["Press", "Media", "Awards", "Events"]
         end
       end
 
