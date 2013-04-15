@@ -8,14 +8,14 @@ module Refinery
       attr_accessor :locale # to hold temporarily
 
       attr_accessible :title, :body, :content, :source, :publish_date, :expiration_date,
-        :category
+        :category, :teaser, :image_area
 
       class Translation
         attr_accessible :locale
       end
 
       alias_attribute :content, :body
-      validates :title, :content, :publish_date, :presence => true
+      validates :title, :content, :publish_date, :category, :teaser, :presence => true
 
       friendly_id :title, :use => [:slugged]
 
