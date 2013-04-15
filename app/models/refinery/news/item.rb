@@ -36,6 +36,10 @@ module Refinery
       end
 
       class << self
+        def by_category(category)
+          where(:category => category.downcase)
+        end
+
         def by_archive(archive_date)
           where(:publish_date => archive_date.beginning_of_month..archive_date.end_of_month)
         end

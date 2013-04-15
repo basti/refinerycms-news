@@ -31,6 +31,7 @@ module Refinery
 
       def find_published_news_items
         @items = Item.published.translated.page(params[:page])
+        @items = @items.by_category(params[:category]) if params[:category]
       end
 
       def find_news_item
