@@ -28,6 +28,11 @@
   </div>
 
   <div class='field'>
+    <%= f.label :event_date %>
+    <%= f.datetime_select :event_date %>
+  </div>
+
+  <div class='field'>
     <%= f.label :image_area %>
     <%= f.text_area :image_area, :rows => "5", :class => "wymeditor widest" %>
   </div>

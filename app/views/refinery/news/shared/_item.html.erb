@@ -2,9 +2,15 @@
   <header>
     <h1><%= link_to item.title, refinery.news_item_path(item) %></h1>
     <section class='details'>
-      <time datetime="<%=l item.publish_date.to_date, :format => :default %>" class='posted_at'>
-        <%= t('created_at', :scope => 'refinery.news.shared.items', :when => l(item.publish_date.to_date, :format => :short)) %>
-      </time>
+      <% if item.event_date.present? %>
+        <time datetime="<%=l item.event_date.to_date, :format => :default %>" class='posted_at'>
+          <%= t('event_date', :scope => 'refinery.news.shared.items', :when => l(item.event_date.to_date, :format => :short)) %>
+        </time>
+      <% else %>
+        <time datetime="<%=l item.publish_date.to_date, :format => :default %>" class='posted_at'>
+          <%= t('created_at', :scope => 'refinery.news.shared.items', :when => l(item.publish_date.to_date, :format => :short)) %>
+        </time>
+      <% end %>
     </section>
   </header>
   <section class='clearfix'>

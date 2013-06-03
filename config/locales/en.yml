@@ -20,6 +20,7 @@ en:
         items:
           read_more: Read more
           created_at: 'Created at %{when}'
+          event_date: 'Event date: %{when}'
         archives: Archives
       items:
         show:
